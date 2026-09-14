@@ -1,0 +1,8 @@
+{
+  "appId": "io.biogo.game",
+  "appName": "生物棋",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}

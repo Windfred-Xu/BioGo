@@ -1,0 +1,19 @@
+# Local dependencies and generated build output
+node_modules/
+.toolchain/
+android/
+www/
+docs/
+dist/
+
+# Android Studio / Gradle state
+.gradle/
+.idea/
+*.iml
+
+# Local reports and test artifacts
+balance-results/
+balance-retest-results/
+balance-v3-results/
+balance-v4-results/
+balance-v5-results/

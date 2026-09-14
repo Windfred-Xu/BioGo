@@ -1,0 +1,69 @@
+{
+  "name": "bio-go",
+  "version": "0.1.0",
+  "private": true,
+  "description": "生物棋：病毒、细菌、真菌三派系策略游戏",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node bio-features.test.js && node bio-engine.test.cjs && node migration-v3.test.cjs",
+    "serve": "node server.cjs",
+    "prepare:mobile": "node scripts/sync-mobile.cjs",
+    "prepare:pages": "npm run prepare:mobile && node scripts/prepare-pages.cjs",
+    "android:sync": "npm run prepare:mobile && node node_modules/@capacitor/cli/bin/capacitor sync android && node scripts/prepare-portable-android.cjs",
+    "android:debug": "npm run android:sync && cd android && gradlew.bat assembleDebug",
+    "android:release": "npm run android:sync && cd android && gradlew.bat assembleRelease",
+    "build:win": "node node_modules/electron-builder/out/cli/cli.js --win msi --x64",
+    "build:msi": "npm run build:win"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^8.5.0",
+    "@capacitor/cli": "^8.5.0",
+    "@capacitor/core": "^8.5.0",
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "io.biogo.game",
+    "productName": "生物棋",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "index.html",
+      "Chemiss-UI-基线.html",
+      "parity-app.js",
+      "parity-engine.js",
+      "parity-features.js",
+      "parity-baseline.css",
+      "baseline-modules.js",
+      "lan-transport.js",
+      "server.cjs",
+      "vendor/**",
+      "LICENSE-Chemiss.txt",
+      "main.js",
+      "preload.js",
+      "package.json",
+      "bio-*.js",
+      "bio-design.css",
+      "bgm/**"
+    ],
+    "win": {
+      "target": [{
+        "target": "msi",
+        "arch": ["x64"]
+      }],
+      "signAndEditExecutable": false
+    },
+    "msi": {
+      "oneClick": false,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "生物棋",
+      "menuCategory": "生物棋",
+      "runAfterFinish": true,
+      "upgradeCode": "{86DFD89D-3D2E-47D7-9B1B-9F2980D6C9F1}"
+    }
+  }
+}
