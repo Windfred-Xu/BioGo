@@ -12,5 +12,5 @@ for(let seed=1;seed<=20;seed++){const {s,add}=fixture('bacteria',seed);add(20,'w
 
 for(const f of ['bacteria','fungi']){const {s}=fixture(f,90);const id=s.board[6].id;s.bio.stoneMeta[id].captureCount=2;const r=E.play(s,{point:0,faction:'virus'});assert.ok(!r.error);assert.equal(r.state.bio.stoneMeta[id],undefined,f+' third capture metadata');assert.equal(r.state.board[6],null,f+' third capture origin');assert.equal(r.state.pending,undefined,f+' third capture must not wait migration');assert.equal(r.state.phase,'place',f+' third capture next phase');assert.equal(r.event.destinations.length,0,f+' third capture no migration');assert.equal(r.event.removed,1,f+' third capture removed');assert.match(r.event.details.join(' '),/第3次被提/);}
 
-const html=fs.readFileSync(__dirname+'/Chemiss-UI-基线.html','utf8');assert.ok(html.includes(fs.readFileSync(__dirname+'/bio-engine.js','utf8').trim()));
+const html=fs.readFileSync(__dirname+'/biogo.html','utf8');assert.ok(html.includes(fs.readFileSync(__dirname+'/bio-engine.js','utf8').trim()));
 console.log('v3 migration: nearest/ties, no anchor removal, fungi free choice, no spores, exhaustion, source purity, inline sync passed');

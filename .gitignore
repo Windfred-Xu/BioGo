@@ -17,3 +17,8 @@ balance-retest-results/
 balance-v3-results/
 balance-v4-results/
 balance-v5-results/
+
+# Private design and local packaging notes
+生物棋设计方案_v0.1.md
+使用说明.md
+打包说明.md

@@ -1,7 +1,7 @@
 /* Optional LAN room relay and static game server. No dependencies. */
 const http=require('node:http'),fs=require('node:fs'),path=require('node:path');
 const base=__dirname,rooms=new Map(),port=Number(process.env.PARITY_PORT)||8766;
-const allowed=new Set(['index.html','bio-ui.js','bio-design.css','bio-features.js','bio-engine.js','Chemiss-UI-基线.html','parity-app.js','baseline-modules.js','parity-features.js','parity-engine.js','parity-baseline.css','lan-transport.js','vendor/mqtt.min.js']);
+const allowed=new Set(['index.html','bio-ui.js','bio-design.css','bio-features.js','bio-engine.js','biogo.html','parity-app.js','baseline-modules.js','parity-features.js','parity-engine.js','parity-baseline.css','lan-transport.js','vendor/mqtt.min.js']);
 const valid=s=>typeof s==='string'&&/^[a-zA-Z0-9_/-]{1,80}$/.test(s);
 const server=http.createServer((req,res)=>{
  const u=new URL(req.url,'http://localhost');

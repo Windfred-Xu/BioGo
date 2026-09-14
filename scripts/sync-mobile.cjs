@@ -9,7 +9,7 @@ const copy=(from,to=from)=>{
 };
 fs.rmSync(out,{recursive:true,force:true});
 fs.mkdirSync(out,{recursive:true});
-copy('Chemiss-UI-基线.html','index.html');
+copy('biogo.html','index.html');
 ['parity-app.js','parity-engine.js','parity-features.js','parity-baseline.css','baseline-modules.js','lan-transport.js','bio-ui.js','bio-bgm.js','bio-design.css','LICENSE-Chemiss.txt'].forEach(file=>copy(file));
 copy('vendor');
 copy('bgm');

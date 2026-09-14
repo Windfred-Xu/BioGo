@@ -4,7 +4,7 @@ const E=require('./bio-engine.js');
 const dir=path.join(__dirname,'balance-results');fs.mkdirSync(dir,{recursive:true});
 const sources=['bio-engine.js','bio-features.js','parity-engine.js','parity-app.js'];
 const hashes=Object.fromEntries(sources.map(f=>[f,crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname,f))).digest('hex')]));
-const html=fs.readFileSync(path.join(__dirname,'Chemiss-UI-基线.html'),'utf8');
+const html=fs.readFileSync(path.join(__dirname,'biogo.html'),'utf8');
 const inline=html.match(/<script id="parity-engine">([\s\S]*?)<\/script>/)[1];
 const expected=['parity-engine.js','bio-features.js','bio-engine.js'].map(f=>fs.readFileSync(path.join(__dirname,f),'utf8').trim()).join('\n');
 if(inline.trim().replace(/\r\n/g,'\n')!==expected.replace(/\r\n/g,'\n'))throw Error('Inline worker engine differs from local engine');
