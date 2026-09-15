@@ -142,6 +142,7 @@
       color: color,           // 'black' | 'white'，与核心引擎的颜色字段保持一致
       state: STATE.ACTIVE,
       infectionCount: 0,
+      captureCount: 0,       // 被提后成功迁移/替换的次数，也是棋面的破损等级
       resistanceCount: 0,
       sporeTimer: null,       // 非孢子状态为 null；孢子状态为剩余回合数
       sporeInterfered: false, // 是否已被细菌"抗真菌干扰"命中
